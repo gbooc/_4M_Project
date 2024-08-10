@@ -1,0 +1,1169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_apc_personnel">
+          <Key>
+            <PropertyRef Name="apc_id" />
+          </Key>
+          <Property Name="apc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="emp_id" Type="varchar" MaxLength="500" />
+          <Property Name="emp_name" Type="varchar" MaxLength="200" />
+          <Property Name="tel_num" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_applications">
+          <Key>
+            <PropertyRef Name="app_id" />
+          </Key>
+          <Property Name="app_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="apc_id" Type="int" />
+          <Property Name="code_number" Type="varchar(max)" />
+          <Property Name="application_name" Type="varchar(max)" />
+          <Property Name="user_department" Type="varchar" MaxLength="50" />
+          <Property Name="app_type" Type="varchar" MaxLength="1000" />
+          <Property Name="web_link" Type="varchar" MaxLength="1000" />
+          <Property Name="icon_path" Type="varchar" MaxLength="1000" />
+          <Property Name="is_active" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_cc_category">
+          <Key>
+            <PropertyRef Name="cc_category_id" />
+          </Key>
+          <Property Name="cc_category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="selection" Type="varchar" MaxLength="2000" />
+          <Property Name="description" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="tbl_costcenter_meaning">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cc_code" Type="varchar" MaxLength="2000" />
+          <Property Name="cc_division" Type="varchar" MaxLength="2000" />
+          <Property Name="cc_description" Type="varchar" MaxLength="3000" />
+        </EntityType>
+        <EntityType Name="tbl_daily_report">
+          <Key>
+            <PropertyRef Name="r_id" />
+          </Key>
+          <Property Name="r_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="apc_id" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="jobno" Type="varchar(max)" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="day" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="time_start" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="time_end" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="mins" Type="int" Nullable="false" />
+          <Property Name="cc_description" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="work_description" Type="varchar(max)" Nullable="false" />
+          <Property Name="company" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_downtime">
+          <Key>
+            <PropertyRef Name="downtime_id" />
+          </Key>
+          <Property Name="downtime_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="downtime_type_id" Type="int" />
+          <Property Name="code_number" Type="varchar" MaxLength="2000" />
+          <Property Name="datestarted_of_downtime" Type="datetime" />
+          <Property Name="dateended_of_downtime" Type="datetime" />
+          <Property Name="total_mins_of_downtime" Type="int" />
+          <Property Name="downtime_cause_details" Type="varchar(max)" />
+          <Property Name="downtime_cause_id" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_downtime_cause">
+          <Key>
+            <PropertyRef Name="downtime_cause_id" />
+          </Key>
+          <Property Name="downtime_cause_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="downtime_type_id" Type="int" />
+          <Property Name="hardware_description" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityType Name="tbl_employee_outside_rimp">
+          <Key>
+            <PropertyRef Name="or_id" />
+          </Key>
+          <Property Name="or_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="visitor_id" Type="varchar" MaxLength="200" />
+          <Property Name="visitor_name" Type="varchar(max)" />
+          <Property Name="visitor_company_id" Type="varchar" MaxLength="300" />
+          <Property Name="visitor_company_name" Type="varchar" MaxLength="2000" />
+          <Property Name="visitor_position" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tbl_employees">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cc_category_id" Type="int" Nullable="false" />
+          <Property Name="cc_id" Type="int" Nullable="false" />
+          <Property Name="emp_id" Type="varchar" MaxLength="500" />
+          <Property Name="flg_status" Type="varchar" MaxLength="500" />
+          <Property Name="local_num" Type="varchar" MaxLength="200" />
+          <Property Name="email_address" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="tbl_gantt_chart">
+          <Key>
+            <PropertyRef Name="gant_chart_id" />
+          </Key>
+          <Property Name="gant_chart_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="details_id" Type="varchar" MaxLength="50" />
+          <Property Name="work_package" Type="varchar" MaxLength="5000" />
+          <Property Name="branches" Type="varchar" MaxLength="5000" />
+          <Property Name="functions" Type="varchar(max)" />
+          <Property Name="date_started" Type="date" />
+          <Property Name="date_ended" Type="date" />
+        </EntityType>
+        <EntityType Name="tbl_jo_cc_details">
+          <Key>
+            <PropertyRef Name="jo_cc_id" />
+          </Key>
+          <Property Name="jo_cc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jobno_id" Type="int" />
+          <Property Name="category" Type="varchar" MaxLength="200" />
+          <Property Name="sbu" Type="varchar" MaxLength="200" />
+          <Property Name="division" Type="varchar" MaxLength="200" />
+          <Property Name="cost_center" Type="varchar" MaxLength="200" />
+          <Property Name="description" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tbl_joborder">
+          <Key>
+            <PropertyRef Name="jobno_id" />
+          </Key>
+          <Property Name="jobno_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="details_id" Type="int" />
+          <Property Name="job_no" Type="varchar(max)" />
+          <Property Name="priority_id" Type="int" />
+          <Property Name="date_filed" Type="datetime" />
+          <Property Name="date_needed" Type="datetime" />
+          <Property Name="shift_hrs" Type="varchar" MaxLength="50" />
+          <Property Name="hrs_of_ot" Type="int" />
+          <Property Name="requested_by" Type="varchar" MaxLength="1000" />
+          <Property Name="noted_by" Type="varchar" MaxLength="1000" />
+          <Property Name="approved_by" Type="varchar" MaxLength="1000" />
+          <Property Name="noted_by_sign" Type="varchar" MaxLength="50" />
+          <Property Name="approved_by_sign" Type="varchar" MaxLength="50" />
+          <Property Name="rate" Type="int" />
+          <Property Name="date_confirmed" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_joborder_category">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tbl_joborder_details">
+          <Key>
+            <PropertyRef Name="details_id" />
+          </Key>
+          <Property Name="details_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_id" Type="int" />
+          <Property Name="status_id" Type="int" />
+          <Property Name="sw_codenumber" Type="varchar(max)" />
+          <Property Name="sw_standard_time" Type="int" />
+          <Property Name="date_target" Type="datetime" />
+          <Property Name="date_assigned" Type="datetime" />
+          <Property Name="date_started" Type="datetime" />
+          <Property Name="date_ended" Type="datetime" />
+          <Property Name="actual_time" Type="int" />
+          <Property Name="details" Type="varchar(max)" />
+          <Property Name="purpose" Type="varchar(max)" />
+          <Property Name="diagnosis" Type="varchar(max)" />
+          <Property Name="action_taken" Type="varchar(max)" />
+          <Property Name="reason_delay" Type="varchar(max)" />
+          <Property Name="apc_noted_by" Type="varchar" MaxLength="500" />
+          <Property Name="apc_approved_by" Type="varchar" MaxLength="500" />
+          <Property Name="progress_rate" Type="int" />
+          <Property Name="date_progress_updated" Type="datetime" />
+          <Property Name="assignee" Type="varchar" MaxLength="2000" />
+          <Property Name="remarks" Type="varchar" MaxLength="100" />
+          <Property Name="has_scope" Type="varchar" MaxLength="5" />
+          <Property Name="sw_gantt_chart" Type="varchar" MaxLength="2000" />
+          <Property Name="flg_is_exported" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tbl_managers_email">
+          <Key>
+            <PropertyRef Name="me_id" />
+          </Key>
+          <Property Name="me_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="emp_id" Type="varchar" MaxLength="500" />
+          <Property Name="emp_name" Type="varchar(max)" />
+          <Property Name="dept_id" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="3000" />
+        </EntityType>
+        <EntityType Name="tbl_network">
+          <Key>
+            <PropertyRef Name="network_id" />
+          </Key>
+          <Property Name="network_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="downtime_type_id" Type="int" />
+          <Property Name="network_code_number" Type="varchar(max)" />
+          <Property Name="location" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="tbl_preventive_maintenance">
+          <Key>
+            <PropertyRef Name="maintenance_id" />
+          </Key>
+          <Property Name="maintenance_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pc_id" Type="int" />
+          <Property Name="planned_month" Type="varchar" MaxLength="50" />
+          <Property Name="preventive_year" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="200" />
+          <Property Name="actual_date" Type="datetime" />
+          <Property Name="incharge" Type="varchar(max)" />
+          <Property Name="prepared_by" Type="varchar(max)" />
+          <Property Name="checked_by" Type="varchar(max)" />
+          <Property Name="approved_by" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_preventive_pc">
+          <Key>
+            <PropertyRef Name="pc_id" />
+          </Key>
+          <Property Name="pc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="computer_name" Type="varchar" MaxLength="500" />
+          <Property Name="equipment" Type="varchar" MaxLength="200" />
+          <Property Name="owner" Type="varchar(max)" />
+          <Property Name="department" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tbl_preventive_services">
+          <Key>
+            <PropertyRef Name="services_id" />
+          </Key>
+          <Property Name="services_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_priority">
+          <Key>
+            <PropertyRef Name="priority_id" />
+          </Key>
+          <Property Name="priority_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="priority_name" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tbl_sbu">
+          <Key>
+            <PropertyRef Name="sbu_id" />
+          </Key>
+          <Property Name="sbu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sbu" Type="varchar" MaxLength="500" />
+          <Property Name="description" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="tbl_sbu_costcenter">
+          <Key>
+            <PropertyRef Name="cc_id" />
+          </Key>
+          <Property Name="cc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dept_id" Type="varchar" MaxLength="50" />
+          <Property Name="cost_center" Type="varchar" MaxLength="100" />
+          <Property Name="description" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="tbl_scoping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="batch_no" Type="int" />
+          <Property Name="jo_no" Type="varchar" MaxLength="200" />
+          <Property Name="system_name" Type="varchar" MaxLength="500" />
+          <Property Name="background" Type="varchar(max)" />
+          <Property Name="system_goals" Type="varchar(max)" />
+          <Property Name="system_objectives" Type="varchar(max)" />
+          <Property Name="deliverables" Type="varchar(max)" />
+          <Property Name="development_estimation" Type="varchar(max)" />
+          <Property Name="confirmedby_user" Type="varchar(max)" />
+          <Property Name="preparedby" Type="varchar(max)" />
+          <Property Name="confirmedby_superior" Type="varchar(max)" />
+          <Property Name="date_confrimedbyuser" Type="date" />
+          <Property Name="date_confrimedbysuperior" Type="date" />
+          <Property Name="is_saved" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_security">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="emp_id" Type="varchar" MaxLength="500" />
+          <Property Name="emp_name" Type="varchar" MaxLength="500" />
+          <Property Name="emp_access" Type="bit" />
+          <Property Name="emp_dept" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_server">
+          <Key>
+            <PropertyRef Name="server_id" />
+          </Key>
+          <Property Name="server_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="downtime_type_id" Type="int" />
+          <Property Name="server_code_number" Type="varchar(max)" />
+          <Property Name="server_name" Type="varchar" MaxLength="2000" />
+          <Property Name="server_uptime" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_status">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_sub_assignees">
+          <Key>
+            <PropertyRef Name="a_id" />
+          </Key>
+          <Property Name="a_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="details_id" Type="int" Nullable="false" />
+          <Property Name="emp_name" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_telephone">
+          <Key>
+            <PropertyRef Name="tel_id" />
+          </Key>
+          <Property Name="tel_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="downtime_type_id" Type="int" />
+          <Property Name="tel_name" Type="varchar" MaxLength="5000" />
+          <Property Name="tel_code_number" Type="varchar" MaxLength="5000" />
+          <Property Name="tel_location" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'JO.dbo.tbl_telephone_Rolie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_telephone_Rolie">
+          <Key>
+            <PropertyRef Name="tel_id" />
+          </Key>
+          <Property Name="tel_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="downtime_type_id" Type="int" />
+          <Property Name="tel_name" Type="varchar" MaxLength="5000" />
+          <Property Name="tel_code_number" Type="varchar" MaxLength="5000" />
+          <Property Name="tel_location" Type="varchar" MaxLength="5000" />
+        </EntityType>
+        <EntityContainer Name="JOModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_apc_personnel" EntityType="Self.tbl_apc_personnel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_applications" EntityType="Self.tbl_applications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_cc_category" EntityType="Self.tbl_cc_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_costcenter_meaning" EntityType="Self.tbl_costcenter_meaning" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_daily_report" EntityType="Self.tbl_daily_report" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_downtime" EntityType="Self.tbl_downtime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_downtime_cause" EntityType="Self.tbl_downtime_cause" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_employee_outside_rimp" EntityType="Self.tbl_employee_outside_rimp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_employees" EntityType="Self.tbl_employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_gantt_chart" EntityType="Self.tbl_gantt_chart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_jo_cc_details" EntityType="Self.tbl_jo_cc_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_joborder" EntityType="Self.tbl_joborder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_joborder_category" EntityType="Self.tbl_joborder_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_joborder_details" EntityType="Self.tbl_joborder_details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_managers_email" EntityType="Self.tbl_managers_email" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_network" EntityType="Self.tbl_network" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_preventive_maintenance" EntityType="Self.tbl_preventive_maintenance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_preventive_pc" EntityType="Self.tbl_preventive_pc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_preventive_services" EntityType="Self.tbl_preventive_services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_priority" EntityType="Self.tbl_priority" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_sbu" EntityType="Self.tbl_sbu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_sbu_costcenter" EntityType="Self.tbl_sbu_costcenter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_scoping" EntityType="Self.tbl_scoping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_security" EntityType="Self.tbl_security" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_server" EntityType="Self.tbl_server" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_status" EntityType="Self.tbl_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_sub_assignees" EntityType="Self.tbl_sub_assignees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_telephone" EntityType="Self.tbl_telephone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_telephone_Rolie" EntityType="Self.tbl_telephone_Rolie" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_telephone_Rolie].[tel_id] AS [tel_id], 
+    [tbl_telephone_Rolie].[downtime_type_id] AS [downtime_type_id], 
+    [tbl_telephone_Rolie].[tel_name] AS [tel_name], 
+    [tbl_telephone_Rolie].[tel_code_number] AS [tel_code_number], 
+    [tbl_telephone_Rolie].[tel_location] AS [tel_location]
+    FROM [dbo].[tbl_telephone_Rolie] AS [tbl_telephone_Rolie]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_apc_personnel">
+          <Key>
+            <PropertyRef Name="apc_id" />
+          </Key>
+          <Property Name="apc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp_id" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="emp_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="tel_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_applications">
+          <Key>
+            <PropertyRef Name="app_id" />
+          </Key>
+          <Property Name="app_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="apc_id" Type="Int32" />
+          <Property Name="code_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="application_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="user_department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="app_type" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="web_link" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="icon_path" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="is_active" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_cc_category">
+          <Key>
+            <PropertyRef Name="cc_category_id" />
+          </Key>
+          <Property Name="cc_category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="selection" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_costcenter_meaning">
+          <Key>
+            <PropertyRef Name="m_id" />
+          </Key>
+          <Property Name="m_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cc_code" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="cc_division" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="cc_description" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_daily_report">
+          <Key>
+            <PropertyRef Name="r_id" />
+          </Key>
+          <Property Name="r_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="apc_id" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="jobno" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="day" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="time_start" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="time_end" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mins" Type="Int32" Nullable="false" />
+          <Property Name="cc_description" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="work_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="company" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_downtime">
+          <Key>
+            <PropertyRef Name="downtime_id" />
+          </Key>
+          <Property Name="downtime_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="downtime_type_id" Type="Int32" />
+          <Property Name="code_number" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="datestarted_of_downtime" Type="DateTime" Precision="3" />
+          <Property Name="dateended_of_downtime" Type="DateTime" Precision="3" />
+          <Property Name="total_mins_of_downtime" Type="Int32" />
+          <Property Name="downtime_cause_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="downtime_cause_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_downtime_cause">
+          <Key>
+            <PropertyRef Name="downtime_cause_id" />
+          </Key>
+          <Property Name="downtime_cause_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="downtime_type_id" Type="Int32" />
+          <Property Name="hardware_description" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_employee_outside_rimp">
+          <Key>
+            <PropertyRef Name="or_id" />
+          </Key>
+          <Property Name="or_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="visitor_id" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="visitor_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="visitor_company_id" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="visitor_company_name" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="visitor_position" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_employees">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cc_category_id" Type="Int32" Nullable="false" />
+          <Property Name="cc_id" Type="Int32" Nullable="false" />
+          <Property Name="emp_id" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="flg_status" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="local_num" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="email_address" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_gantt_chart">
+          <Key>
+            <PropertyRef Name="gant_chart_id" />
+          </Key>
+          <Property Name="gant_chart_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="details_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="work_package" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="branches" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="functions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="date_started" Type="DateTime" Precision="0" />
+          <Property Name="date_ended" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tbl_jo_cc_details">
+          <Key>
+            <PropertyRef Name="jo_cc_id" />
+          </Key>
+          <Property Name="jo_cc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="jobno_id" Type="Int32" />
+          <Property Name="category" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="sbu" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="division" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="cost_center" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_joborder">
+          <Key>
+            <PropertyRef Name="jobno_id" />
+          </Key>
+          <Property Name="jobno_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="details_id" Type="Int32" />
+          <Property Name="job_no" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="priority_id" Type="Int32" />
+          <Property Name="date_filed" Type="DateTime" Precision="3" />
+          <Property Name="date_needed" Type="DateTime" Precision="3" />
+          <Property Name="shift_hrs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hrs_of_ot" Type="Int32" />
+          <Property Name="requested_by" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="noted_by" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="approved_by" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="noted_by_sign" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="approved_by_sign" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rate" Type="Int32" />
+          <Property Name="date_confirmed" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_joborder_category">
+          <Key>
+            <PropertyRef Name="category_id" />
+          </Key>
+          <Property Name="category_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_joborder_details">
+          <Key>
+            <PropertyRef Name="details_id" />
+          </Key>
+          <Property Name="details_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_id" Type="Int32" />
+          <Property Name="status_id" Type="Int32" />
+          <Property Name="sw_codenumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sw_standard_time" Type="Int32" />
+          <Property Name="date_target" Type="DateTime" Precision="3" />
+          <Property Name="date_assigned" Type="DateTime" Precision="3" />
+          <Property Name="date_started" Type="DateTime" Precision="3" />
+          <Property Name="date_ended" Type="DateTime" Precision="3" />
+          <Property Name="actual_time" Type="Int32" />
+          <Property Name="details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="purpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="diagnosis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="action_taken" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="reason_delay" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="apc_noted_by" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="apc_approved_by" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="progress_rate" Type="Int32" />
+          <Property Name="date_progress_updated" Type="DateTime" Precision="3" />
+          <Property Name="assignee" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="has_scope" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="sw_gantt_chart" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="flg_is_exported" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_managers_email">
+          <Key>
+            <PropertyRef Name="me_id" />
+          </Key>
+          <Property Name="me_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp_id" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="emp_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dept_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_network">
+          <Key>
+            <PropertyRef Name="network_id" />
+          </Key>
+          <Property Name="network_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="downtime_type_id" Type="Int32" />
+          <Property Name="network_code_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_preventive_maintenance">
+          <Key>
+            <PropertyRef Name="maintenance_id" />
+          </Key>
+          <Property Name="maintenance_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pc_id" Type="Int32" />
+          <Property Name="planned_month" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="preventive_year" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="actual_date" Type="DateTime" Precision="3" />
+          <Property Name="incharge" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="prepared_by" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="checked_by" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="approved_by" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_preventive_pc">
+          <Key>
+            <PropertyRef Name="pc_id" />
+          </Key>
+          <Property Name="pc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="computer_name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="equipment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="department" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_preventive_services">
+          <Key>
+            <PropertyRef Name="services_id" />
+          </Key>
+          <Property Name="services_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_priority">
+          <Key>
+            <PropertyRef Name="priority_id" />
+          </Key>
+          <Property Name="priority_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="priority_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_sbu">
+          <Key>
+            <PropertyRef Name="sbu_id" />
+          </Key>
+          <Property Name="sbu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sbu" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_sbu_costcenter">
+          <Key>
+            <PropertyRef Name="cc_id" />
+          </Key>
+          <Property Name="cc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dept_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cost_center" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_scoping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="batch_no" Type="Int32" />
+          <Property Name="jo_no" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="system_name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="background" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="system_goals" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="system_objectives" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="deliverables" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="development_estimation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="confirmedby_user" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="preparedby" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="confirmedby_superior" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="date_confrimedbyuser" Type="DateTime" Precision="0" />
+          <Property Name="date_confrimedbysuperior" Type="DateTime" Precision="0" />
+          <Property Name="is_saved" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_security">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp_id" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="emp_name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="emp_access" Type="Boolean" />
+          <Property Name="emp_dept" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_server">
+          <Key>
+            <PropertyRef Name="server_id" />
+          </Key>
+          <Property Name="server_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="downtime_type_id" Type="Int32" />
+          <Property Name="server_code_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="server_name" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="server_uptime" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_status">
+          <Key>
+            <PropertyRef Name="status_id" />
+          </Key>
+          <Property Name="status_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="status" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_sub_assignees">
+          <Key>
+            <PropertyRef Name="a_id" />
+          </Key>
+          <Property Name="a_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="details_id" Type="Int32" Nullable="false" />
+          <Property Name="emp_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_telephone">
+          <Key>
+            <PropertyRef Name="tel_id" />
+          </Key>
+          <Property Name="tel_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="downtime_type_id" Type="Int32" />
+          <Property Name="tel_name" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="tel_code_number" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="tel_location" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_telephone_Rolie">
+          <Key>
+            <PropertyRef Name="tel_id" />
+          </Key>
+          <Property Name="tel_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="downtime_type_id" Type="Int32" />
+          <Property Name="tel_name" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="tel_code_number" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="tel_location" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="JOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tbl_apc_personnel" EntityType="Self.tbl_apc_personnel" />
+          <EntitySet Name="tbl_applications" EntityType="Self.tbl_applications" />
+          <EntitySet Name="tbl_cc_category" EntityType="Self.tbl_cc_category" />
+          <EntitySet Name="tbl_costcenter_meaning" EntityType="Self.tbl_costcenter_meaning" />
+          <EntitySet Name="tbl_daily_report" EntityType="Self.tbl_daily_report" />
+          <EntitySet Name="tbl_downtime" EntityType="Self.tbl_downtime" />
+          <EntitySet Name="tbl_downtime_cause" EntityType="Self.tbl_downtime_cause" />
+          <EntitySet Name="tbl_employee_outside_rimp" EntityType="Self.tbl_employee_outside_rimp" />
+          <EntitySet Name="tbl_employees" EntityType="Self.tbl_employees" />
+          <EntitySet Name="tbl_gantt_chart" EntityType="Self.tbl_gantt_chart" />
+          <EntitySet Name="tbl_jo_cc_details" EntityType="Self.tbl_jo_cc_details" />
+          <EntitySet Name="tbl_joborder" EntityType="Self.tbl_joborder" />
+          <EntitySet Name="tbl_joborder_category" EntityType="Self.tbl_joborder_category" />
+          <EntitySet Name="tbl_joborder_details" EntityType="Self.tbl_joborder_details" />
+          <EntitySet Name="tbl_managers_email" EntityType="Self.tbl_managers_email" />
+          <EntitySet Name="tbl_network" EntityType="Self.tbl_network" />
+          <EntitySet Name="tbl_preventive_maintenance" EntityType="Self.tbl_preventive_maintenance" />
+          <EntitySet Name="tbl_preventive_pc" EntityType="Self.tbl_preventive_pc" />
+          <EntitySet Name="tbl_preventive_services" EntityType="Self.tbl_preventive_services" />
+          <EntitySet Name="tbl_priority" EntityType="Self.tbl_priority" />
+          <EntitySet Name="tbl_sbu" EntityType="Self.tbl_sbu" />
+          <EntitySet Name="tbl_sbu_costcenter" EntityType="Self.tbl_sbu_costcenter" />
+          <EntitySet Name="tbl_scoping" EntityType="Self.tbl_scoping" />
+          <EntitySet Name="tbl_security" EntityType="Self.tbl_security" />
+          <EntitySet Name="tbl_server" EntityType="Self.tbl_server" />
+          <EntitySet Name="tbl_status" EntityType="Self.tbl_status" />
+          <EntitySet Name="tbl_sub_assignees" EntityType="Self.tbl_sub_assignees" />
+          <EntitySet Name="tbl_telephone" EntityType="Self.tbl_telephone" />
+          <EntitySet Name="tbl_telephone_Rolie" EntityType="Self.tbl_telephone_Rolie" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JOModelStoreContainer" CdmEntityContainer="JOEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="JOModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_apc_personnel">
+            <EntityTypeMapping TypeName="JOModel.tbl_apc_personnel">
+              <MappingFragment StoreEntitySet="tbl_apc_personnel">
+                <ScalarProperty Name="apc_id" ColumnName="apc_id" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+                <ScalarProperty Name="tel_num" ColumnName="tel_num" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_applications">
+            <EntityTypeMapping TypeName="JOModel.tbl_applications">
+              <MappingFragment StoreEntitySet="tbl_applications">
+                <ScalarProperty Name="app_id" ColumnName="app_id" />
+                <ScalarProperty Name="apc_id" ColumnName="apc_id" />
+                <ScalarProperty Name="code_number" ColumnName="code_number" />
+                <ScalarProperty Name="application_name" ColumnName="application_name" />
+                <ScalarProperty Name="user_department" ColumnName="user_department" />
+                <ScalarProperty Name="app_type" ColumnName="app_type" />
+                <ScalarProperty Name="web_link" ColumnName="web_link" />
+                <ScalarProperty Name="icon_path" ColumnName="icon_path" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_cc_category">
+            <EntityTypeMapping TypeName="JOModel.tbl_cc_category">
+              <MappingFragment StoreEntitySet="tbl_cc_category">
+                <ScalarProperty Name="cc_category_id" ColumnName="cc_category_id" />
+                <ScalarProperty Name="selection" ColumnName="selection" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_costcenter_meaning">
+            <EntityTypeMapping TypeName="JOModel.tbl_costcenter_meaning">
+              <MappingFragment StoreEntitySet="tbl_costcenter_meaning">
+                <ScalarProperty Name="m_id" ColumnName="m_id" />
+                <ScalarProperty Name="cc_code" ColumnName="cc_code" />
+                <ScalarProperty Name="cc_division" ColumnName="cc_division" />
+                <ScalarProperty Name="cc_description" ColumnName="cc_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_daily_report">
+            <EntityTypeMapping TypeName="JOModel.tbl_daily_report">
+              <MappingFragment StoreEntitySet="tbl_daily_report">
+                <ScalarProperty Name="r_id" ColumnName="r_id" />
+                <ScalarProperty Name="apc_id" ColumnName="apc_id" />
+                <ScalarProperty Name="jobno" ColumnName="jobno" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="day" ColumnName="day" />
+                <ScalarProperty Name="time_start" ColumnName="time_start" />
+                <ScalarProperty Name="time_end" ColumnName="time_end" />
+                <ScalarProperty Name="mins" ColumnName="mins" />
+                <ScalarProperty Name="cc_description" ColumnName="cc_description" />
+                <ScalarProperty Name="work_description" ColumnName="work_description" />
+                <ScalarProperty Name="company" ColumnName="company" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_downtime">
+            <EntityTypeMapping TypeName="JOModel.tbl_downtime">
+              <MappingFragment StoreEntitySet="tbl_downtime">
+                <ScalarProperty Name="downtime_id" ColumnName="downtime_id" />
+                <ScalarProperty Name="downtime_type_id" ColumnName="downtime_type_id" />
+                <ScalarProperty Name="code_number" ColumnName="code_number" />
+                <ScalarProperty Name="datestarted_of_downtime" ColumnName="datestarted_of_downtime" />
+                <ScalarProperty Name="dateended_of_downtime" ColumnName="dateended_of_downtime" />
+                <ScalarProperty Name="total_mins_of_downtime" ColumnName="total_mins_of_downtime" />
+                <ScalarProperty Name="downtime_cause_details" ColumnName="downtime_cause_details" />
+                <ScalarProperty Name="downtime_cause_id" ColumnName="downtime_cause_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_downtime_cause">
+            <EntityTypeMapping TypeName="JOModel.tbl_downtime_cause">
+              <MappingFragment StoreEntitySet="tbl_downtime_cause">
+                <ScalarProperty Name="downtime_cause_id" ColumnName="downtime_cause_id" />
+                <ScalarProperty Name="downtime_type_id" ColumnName="downtime_type_id" />
+                <ScalarProperty Name="hardware_description" ColumnName="hardware_description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_employee_outside_rimp">
+            <EntityTypeMapping TypeName="JOModel.tbl_employee_outside_rimp">
+              <MappingFragment StoreEntitySet="tbl_employee_outside_rimp">
+                <ScalarProperty Name="or_id" ColumnName="or_id" />
+                <ScalarProperty Name="visitor_id" ColumnName="visitor_id" />
+                <ScalarProperty Name="visitor_name" ColumnName="visitor_name" />
+                <ScalarProperty Name="visitor_company_id" ColumnName="visitor_company_id" />
+                <ScalarProperty Name="visitor_company_name" ColumnName="visitor_company_name" />
+                <ScalarProperty Name="visitor_position" ColumnName="visitor_position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_employees">
+            <EntityTypeMapping TypeName="JOModel.tbl_employees">
+              <MappingFragment StoreEntitySet="tbl_employees">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cc_category_id" ColumnName="cc_category_id" />
+                <ScalarProperty Name="cc_id" ColumnName="cc_id" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="flg_status" ColumnName="flg_status" />
+                <ScalarProperty Name="local_num" ColumnName="local_num" />
+                <ScalarProperty Name="email_address" ColumnName="email_address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_gantt_chart">
+            <EntityTypeMapping TypeName="JOModel.tbl_gantt_chart">
+              <MappingFragment StoreEntitySet="tbl_gantt_chart">
+                <ScalarProperty Name="gant_chart_id" ColumnName="gant_chart_id" />
+                <ScalarProperty Name="details_id" ColumnName="details_id" />
+                <ScalarProperty Name="work_package" ColumnName="work_package" />
+                <ScalarProperty Name="branches" ColumnName="branches" />
+                <ScalarProperty Name="functions" ColumnName="functions" />
+                <ScalarProperty Name="date_started" ColumnName="date_started" />
+                <ScalarProperty Name="date_ended" ColumnName="date_ended" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_jo_cc_details">
+            <EntityTypeMapping TypeName="JOModel.tbl_jo_cc_details">
+              <MappingFragment StoreEntitySet="tbl_jo_cc_details">
+                <ScalarProperty Name="jo_cc_id" ColumnName="jo_cc_id" />
+                <ScalarProperty Name="jobno_id" ColumnName="jobno_id" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="sbu" ColumnName="sbu" />
+                <ScalarProperty Name="division" ColumnName="division" />
+                <ScalarProperty Name="cost_center" ColumnName="cost_center" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_joborder">
+            <EntityTypeMapping TypeName="JOModel.tbl_joborder">
+              <MappingFragment StoreEntitySet="tbl_joborder">
+                <ScalarProperty Name="jobno_id" ColumnName="jobno_id" />
+                <ScalarProperty Name="details_id" ColumnName="details_id" />
+                <ScalarProperty Name="job_no" ColumnName="job_no" />
+                <ScalarProperty Name="priority_id" ColumnName="priority_id" />
+                <ScalarProperty Name="date_filed" ColumnName="date_filed" />
+                <ScalarProperty Name="date_needed" ColumnName="date_needed" />
+                <ScalarProperty Name="shift_hrs" ColumnName="shift_hrs" />
+                <ScalarProperty Name="hrs_of_ot" ColumnName="hrs_of_ot" />
+                <ScalarProperty Name="requested_by" ColumnName="requested_by" />
+                <ScalarProperty Name="noted_by" ColumnName="noted_by" />
+                <ScalarProperty Name="approved_by" ColumnName="approved_by" />
+                <ScalarProperty Name="noted_by_sign" ColumnName="noted_by_sign" />
+                <ScalarProperty Name="approved_by_sign" ColumnName="approved_by_sign" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="date_confirmed" ColumnName="date_confirmed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_joborder_category">
+            <EntityTypeMapping TypeName="JOModel.tbl_joborder_category">
+              <MappingFragment StoreEntitySet="tbl_joborder_category">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_joborder_details">
+            <EntityTypeMapping TypeName="JOModel.tbl_joborder_details">
+              <MappingFragment StoreEntitySet="tbl_joborder_details">
+                <ScalarProperty Name="details_id" ColumnName="details_id" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="sw_codenumber" ColumnName="sw_codenumber" />
+                <ScalarProperty Name="sw_standard_time" ColumnName="sw_standard_time" />
+                <ScalarProperty Name="date_target" ColumnName="date_target" />
+                <ScalarProperty Name="date_assigned" ColumnName="date_assigned" />
+                <ScalarProperty Name="date_started" ColumnName="date_started" />
+                <ScalarProperty Name="date_ended" ColumnName="date_ended" />
+                <ScalarProperty Name="actual_time" ColumnName="actual_time" />
+                <ScalarProperty Name="details" ColumnName="details" />
+                <ScalarProperty Name="purpose" ColumnName="purpose" />
+                <ScalarProperty Name="diagnosis" ColumnName="diagnosis" />
+                <ScalarProperty Name="action_taken" ColumnName="action_taken" />
+                <ScalarProperty Name="reason_delay" ColumnName="reason_delay" />
+                <ScalarProperty Name="apc_noted_by" ColumnName="apc_noted_by" />
+                <ScalarProperty Name="apc_approved_by" ColumnName="apc_approved_by" />
+                <ScalarProperty Name="progress_rate" ColumnName="progress_rate" />
+                <ScalarProperty Name="date_progress_updated" ColumnName="date_progress_updated" />
+                <ScalarProperty Name="assignee" ColumnName="assignee" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="has_scope" ColumnName="has_scope" />
+                <ScalarProperty Name="sw_gantt_chart" ColumnName="sw_gantt_chart" />
+                <ScalarProperty Name="flg_is_exported" ColumnName="flg_is_exported" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_managers_email">
+            <EntityTypeMapping TypeName="JOModel.tbl_managers_email">
+              <MappingFragment StoreEntitySet="tbl_managers_email">
+                <ScalarProperty Name="me_id" ColumnName="me_id" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+                <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_network">
+            <EntityTypeMapping TypeName="JOModel.tbl_network">
+              <MappingFragment StoreEntitySet="tbl_network">
+                <ScalarProperty Name="network_id" ColumnName="network_id" />
+                <ScalarProperty Name="downtime_type_id" ColumnName="downtime_type_id" />
+                <ScalarProperty Name="network_code_number" ColumnName="network_code_number" />
+                <ScalarProperty Name="location" ColumnName="location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_preventive_maintenance">
+            <EntityTypeMapping TypeName="JOModel.tbl_preventive_maintenance">
+              <MappingFragment StoreEntitySet="tbl_preventive_maintenance">
+                <ScalarProperty Name="maintenance_id" ColumnName="maintenance_id" />
+                <ScalarProperty Name="pc_id" ColumnName="pc_id" />
+                <ScalarProperty Name="planned_month" ColumnName="planned_month" />
+                <ScalarProperty Name="preventive_year" ColumnName="preventive_year" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="actual_date" ColumnName="actual_date" />
+                <ScalarProperty Name="incharge" ColumnName="incharge" />
+                <ScalarProperty Name="prepared_by" ColumnName="prepared_by" />
+                <ScalarProperty Name="checked_by" ColumnName="checked_by" />
+                <ScalarProperty Name="approved_by" ColumnName="approved_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_preventive_pc">
+            <EntityTypeMapping TypeName="JOModel.tbl_preventive_pc">
+              <MappingFragment StoreEntitySet="tbl_preventive_pc">
+                <ScalarProperty Name="pc_id" ColumnName="pc_id" />
+                <ScalarProperty Name="computer_name" ColumnName="computer_name" />
+                <ScalarProperty Name="equipment" ColumnName="equipment" />
+                <ScalarProperty Name="owner" ColumnName="owner" />
+                <ScalarProperty Name="department" ColumnName="department" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_preventive_services">
+            <EntityTypeMapping TypeName="JOModel.tbl_preventive_services">
+              <MappingFragment StoreEntitySet="tbl_preventive_services">
+                <ScalarProperty Name="services_id" ColumnName="services_id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_priority">
+            <EntityTypeMapping TypeName="JOModel.tbl_priority">
+              <MappingFragment StoreEntitySet="tbl_priority">
+                <ScalarProperty Name="priority_id" ColumnName="priority_id" />
+                <ScalarProperty Name="priority_name" ColumnName="priority_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_sbu">
+            <EntityTypeMapping TypeName="JOModel.tbl_sbu">
+              <MappingFragment StoreEntitySet="tbl_sbu">
+                <ScalarProperty Name="sbu_id" ColumnName="sbu_id" />
+                <ScalarProperty Name="sbu" ColumnName="sbu" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_sbu_costcenter">
+            <EntityTypeMapping TypeName="JOModel.tbl_sbu_costcenter">
+              <MappingFragment StoreEntitySet="tbl_sbu_costcenter">
+                <ScalarProperty Name="cc_id" ColumnName="cc_id" />
+                <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+                <ScalarProperty Name="cost_center" ColumnName="cost_center" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_scoping">
+            <EntityTypeMapping TypeName="JOModel.tbl_scoping">
+              <MappingFragment StoreEntitySet="tbl_scoping">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="batch_no" ColumnName="batch_no" />
+                <ScalarProperty Name="jo_no" ColumnName="jo_no" />
+                <ScalarProperty Name="system_name" ColumnName="system_name" />
+                <ScalarProperty Name="background" ColumnName="background" />
+                <ScalarProperty Name="system_goals" ColumnName="system_goals" />
+                <ScalarProperty Name="system_objectives" ColumnName="system_objectives" />
+                <ScalarProperty Name="deliverables" ColumnName="deliverables" />
+                <ScalarProperty Name="development_estimation" ColumnName="development_estimation" />
+                <ScalarProperty Name="confirmedby_user" ColumnName="confirmedby_user" />
+                <ScalarProperty Name="preparedby" ColumnName="preparedby" />
+                <ScalarProperty Name="confirmedby_superior" ColumnName="confirmedby_superior" />
+                <ScalarProperty Name="date_confrimedbyuser" ColumnName="date_confrimedbyuser" />
+                <ScalarProperty Name="date_confrimedbysuperior" ColumnName="date_confrimedbysuperior" />
+                <ScalarProperty Name="is_saved" ColumnName="is_saved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_security">
+            <EntityTypeMapping TypeName="JOModel.tbl_security">
+              <MappingFragment StoreEntitySet="tbl_security">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+                <ScalarProperty Name="emp_access" ColumnName="emp_access" />
+                <ScalarProperty Name="emp_dept" ColumnName="emp_dept" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_server">
+            <EntityTypeMapping TypeName="JOModel.tbl_server">
+              <MappingFragment StoreEntitySet="tbl_server">
+                <ScalarProperty Name="server_id" ColumnName="server_id" />
+                <ScalarProperty Name="downtime_type_id" ColumnName="downtime_type_id" />
+                <ScalarProperty Name="server_code_number" ColumnName="server_code_number" />
+                <ScalarProperty Name="server_name" ColumnName="server_name" />
+                <ScalarProperty Name="server_uptime" ColumnName="server_uptime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_status">
+            <EntityTypeMapping TypeName="JOModel.tbl_status">
+              <MappingFragment StoreEntitySet="tbl_status">
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_sub_assignees">
+            <EntityTypeMapping TypeName="JOModel.tbl_sub_assignees">
+              <MappingFragment StoreEntitySet="tbl_sub_assignees">
+                <ScalarProperty Name="a_id" ColumnName="a_id" />
+                <ScalarProperty Name="details_id" ColumnName="details_id" />
+                <ScalarProperty Name="emp_name" ColumnName="emp_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_telephone">
+            <EntityTypeMapping TypeName="JOModel.tbl_telephone">
+              <MappingFragment StoreEntitySet="tbl_telephone">
+                <ScalarProperty Name="tel_id" ColumnName="tel_id" />
+                <ScalarProperty Name="downtime_type_id" ColumnName="downtime_type_id" />
+                <ScalarProperty Name="tel_name" ColumnName="tel_name" />
+                <ScalarProperty Name="tel_code_number" ColumnName="tel_code_number" />
+                <ScalarProperty Name="tel_location" ColumnName="tel_location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_telephone_Rolie">
+            <EntityTypeMapping TypeName="JOModel.tbl_telephone_Rolie">
+              <MappingFragment StoreEntitySet="tbl_telephone_Rolie">
+                <ScalarProperty Name="tel_id" ColumnName="tel_id" />
+                <ScalarProperty Name="downtime_type_id" ColumnName="downtime_type_id" />
+                <ScalarProperty Name="tel_name" ColumnName="tel_name" />
+                <ScalarProperty Name="tel_code_number" ColumnName="tel_code_number" />
+                <ScalarProperty Name="tel_location" ColumnName="tel_location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

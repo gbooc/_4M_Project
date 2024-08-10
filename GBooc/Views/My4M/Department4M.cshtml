@@ -1,0 +1,242 @@
+﻿
+@{
+    ViewBag.Title = "Department4M";
+    Layout = "~/Views/Shared/Homepage_LayoutPage.cshtml";
+}
+
+<script src="~/Content/assets/libs/chartjs/Chart.js"></script>
+<script src="~/Content/assets/js/your4M.js"></script>
+
+
+<div class="dvContainer">
+    <div class="grey-bg container-fluid">
+
+
+        <section id="stats-subtitle">
+            <div class="row">
+                <div class="col-12 mt-3 mb-1">
+                    <h4 class="text-uppercase">Your Department 4M</h4>
+                    <p>List of all department 4M</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-6 col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Date Started">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Date Ended">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <input type="text" class="form-control" placeholder="Search Keyword">
+                </div>
+                <div class="col-xl-2 col-md-2">
+                    <button class="btn btn-dark"><i class="fa fa-search fa-2x"></i> Search</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-8 col-md-8">
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive tbl-limit-height">
+                                <table class="table mb-0 box-shadow--6dp bg-white">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Date Forward</th>
+                                            <th>Status</th>
+                                            <th># of days</th>
+                                            <th>Assignee</th>
+                                            <th>Location</th>
+                                            <th class="text-end">...</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td><span class="badge bg-red"><i class="fa fa-bell"></i> For Approval</span></td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td><span class="badge bg-red"><i class="fa fa-bell"></i> For Approval</span></td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-4">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-table flex-fill">
+                                <div class="card-header card-header-color"><h2 class="card-title mb-0"><b><i class="fa fa-pie-chart"></i> 4M Status</b></h2></div>
+                                <div class="card-body">
+                                    <canvas id="grphAll4m" height="170"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table class="table custom-table mb-0 table-sm table-borderless table-striped bg-white">
+                                    <caption>Your created 4M</caption>
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th class="text-end">...</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td><span class="badge bg-red"><i class="fa fa-bell"></i> For Approval</span></td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Test</td>
+                                            <td>test</td>
+                                            <td>test</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

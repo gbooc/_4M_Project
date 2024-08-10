@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/Homepage_LayoutPage.cshtml";
+}
+
+<script src="~/Content/assets/libs/chartjs/Chart.js"></script>
+<link rel="stylesheet" href="~/Content/assets/css/Dashboard.css">
+<script src="~/Content/assets/js/dashboard.js"></script>
+
+<div class="dvContainer">
+    <div class="grey-bg container-fluid">
+        <section id="minimal-statistics">
+            <div class="row">
+                <div class="col-12 mt-3 mb-1">
+                    <h4 class="text-uppercase">RIMP DEPARTMENT</h4>
+                    <p> Showing all 4M assigned in all departments</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card dash-widget" id="dvCompleted">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="card-bg">
+                                    <div class="media d-flex">
+                                        <div class="align-self-center">
+                                            <i class="icon-directions primary font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-right">
+                                            <h3>1</h3>
+                                            <span>Technical Department</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="media d-flex">
+                                    <div class="align-self-center">
+                                        <i class="fa fa-calculator warning font-large-2 float-left"></i>
+                                    </div>
+                                    <div class="media-body text-right">
+                                        <h3>1 %</h3>
+                                        <span>Production Control Department</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="media d-flex">
+                                    <div class="align-self-center">
+                                        <i class="icon-size-actual success font-large-2 float-left"></i>
+                                    </div>
+                                    <div class="media-body text-right">
+                                        <h3>1 %</h3>
+                                        <span>Production Department</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="media d-flex">
+                                    <div class="align-self-center">
+                                        <i class="icon-docs danger font-large-2 float-left"></i>
+                                    </div>
+                                    <div class="media-body text-right">
+                                        <h3>1 %</h3>
+                                        <span>Quality Assurance Department</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats-subtitle">
+            <div class="row">
+                <div class="col-12 mt-3 mb-1">
+                    <h4 class="text-uppercase">Another summary..</h4>
+                    <p>Statistics on minimal cards with Title &amp; Sub Title.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-6 col-md-12">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-table flex-fill">
+                                <div class="card-header"><h2 class="card-title mb-0"><b><i class="fa fa-map fa-2x w3-text-blue-gray"></i> All 4M Location</b></h2></div>
+                                <div class="card-body">
+                                    <canvas id="grphAll4m" height="230"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-12">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-table flex-fill">
+                                <div class="card-header"><h2 class="card-title mb-0"><b><i class="fa fa-warning fa-2x w3-text-red"></i> List Of Due Pending 4M</b></h2></div>
+                                <div class="card-body">
+                                    <div class="table-responsive tbl-limit-height">
+                                        <table class="table custom-table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Title</th>
+                                                    <th>Date Forward</th>
+                                                    <th># Of Days</th>
+                                                    <th class="text-end">Department</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Title</td>
+                                                    <td>Date Forward</td>
+                                                    <td>Pending</td>
+                                                    <td><span class="badge bg-danger font-medium-1">TD</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Title</td>
+                                                    <td>Date Forward</td>
+                                                    <td>Pending</td>
+                                                    <td><span class="badge bg-info font-medium-1">PQA</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Title</td>
+                                                    <td>Date Forward</td>
+                                                    <td>Pending</td>
+                                                    <td><span class="badge bg-warning font-medium-1">PCD</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Title</td>
+                                                    <td>Date Forward</td>
+                                                    <td>Pending</td>
+                                                    <td><span class="badge bg-success font-medium-1">PD</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card card-table flex-fill">
+                                <div class="card-header">
+                                    <h2 class="card-title mb-0"><b><i class="fa fa-assistive-listening-systems"></i> New Assigned 4M</b></h2>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive tbl-limit-height">
+                                        <table class="table custom-table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Title</th>
+                                                    <th>Status</th>
+                                                    <th>Date Forward</th>
+                                                    <th># Of Days</th>
+                                                    <th class="text-end">Department</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Title</td>
+                                                    <td><span class="badge bg-danger">Pending</span></td>
+                                                    <td>Date Forward</td>
+                                                    <td><span class="badge bg-inverse-danger">Pending</span></td>
+                                                    <td>Department</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

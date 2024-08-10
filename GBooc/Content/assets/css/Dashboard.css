@@ -1,0 +1,7 @@
+﻿
+.tbl-limit-height 
+{
+    height: 400px;
+    max-height: 250px;
+    overflow-y: scroll;
+}

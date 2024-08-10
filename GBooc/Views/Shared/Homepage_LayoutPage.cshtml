@@ -1,0 +1,189 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="~/Content/img/job1.png">
+
+    <title>Title ..</title>
+
+    @* --------- C S S --------------*@
+    <link rel="stylesheet" href="~/Content/assets/libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/assets/libs/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="~/Content/assets/css/w3.css">
+    <link rel="stylesheet" href="~/Content/assets/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/style.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/colors.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Homepage.css">
+    <link rel="stylesheet" href="~/Content/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Common.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Chart.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Chart.css">
+
+    @*--------- E N D ---------------*@
+
+    @*--------J a v a s c r i p t ---*@
+    <script src="~/Content/assets/libs/angularjs1.8.2/angular.min.js"></script>
+    <script src="~/Content/assets/libs/jquery/jquery-3.6.0.js"></script>
+    <script src="~/Content/assets/libs/bootstrap/js/bootstrap.js"></script>
+    <script src="~/Content/assets/js/Homepage.js"></script>
+    <script src="~/Content/assets/js/common.js"></script>
+
+    @*------- E N D -----------------*@
+</head>
+<body>
+
+    <div class="wrapper tblverlay">
+        <div id="dot1"></div>
+        <div id="dot2"></div>
+        <div id="dot3"></div>
+        <div id="dot4"></div>
+        <div id="dot5"></div>
+        <div id="dot6"></div>
+        <div id="dot7"></div>
+        <div id="dot8"></div>
+        <div id="dot9"></div>
+        <div id="dot10"></div>
+        <div id="base1"></div>
+        <div id="base2"></div>
+        <div id="base3"></div>
+        <div id="base4"></div>
+        <div id="base5"></div>
+    </div>
+
+
+    <div class="page-wrapper chiller-theme toggled">
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div id="show-sidebar">
+                <a class="btn btn-sm btn-danger" href="#" id="iconsMenu">
+                    <i class="fa fa-bars"></i>
+                </a>
+
+                <a class="btn btn-sm btn-danger" href="#" id="iconsMenu">
+                    <i class="fa fa-tachometer"></i>
+                </a>
+
+                <a class="btn btn-sm btn-danger" href="#" id="iconsMenu">
+                    <i class="fa fa-table"></i>
+                </a>
+
+                <a class="btn btn-sm btn-danger" href="#" id="iconsMenu">
+                    <i class="fa fa-plus"></i>
+                </a>
+
+            </div>
+            <div class="sidebar-content">
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img class="img-responsive img-rounded" src=""
+                             alt="User picture">
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">
+                            <strong></strong>
+                        </span>
+                        <span class="user-role"></span>
+                        <span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <span>Online</span>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- sidebar-header  -->
+                <div class="sidebar-search">
+                    <div>
+                        <div class="input-group">
+                            <input type="text" class="form-control search-menu" placeholder="Search...">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>Department 4M</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="@Url.Action("My4M","My4M", new { AccountType = "4MController" })#myJo" id="navMyJo">
+                                <i class="fa fa-user-circle-o"></i>
+                                <span>Manage 4M</span>
+                                <span class="badge bg-danger">10</span>
+                            </a>
+                        </li>
+
+                        <li class="header-menu">
+                            <span>General</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="@Url.Action("Dashboard","Dashboard")#dashboard" id="navDashboard">
+                                <i class="fa fa-tachometer"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        @*<li class="sidebar-dropdown">
+                                <a href="@Url.Action("AllJobOrders","JobOrders")#AllJo" id="navAllJo">
+                                    <i class="fa fa-table"></i>
+                                    <span>Job Orders</span>
+                                </a>
+                            </li>*@
+                        <li class="sidebar-dropdown">
+                            <a href="@Url.Action("Request4M","New4M")#NewJo" id="navNewJo">
+                                <i class="fa fa-plus"></i>
+                                <span>Create 4M</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+            <div class="sidebar-footer">
+                @*<a href="#">
+                        <i class="fa fa-bell"></i>
+                        <span class="badge badge-pill badge-warning notification">3</span>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-envelope"></i>
+                        <span class="badge badge-pill badge-success notification">7</span>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-cog"></i>
+                        <span class="badge-sonar"></span>
+                    </a>
+                    <a href="@Url.Action("Logout","Home")">
+                        <i class="fa fa-power-off"></i>
+                    </a>*@
+            </div>
+        </nav>
+        <!-- sidebar-wrapper  -->
+        <div class="main-content">
+            <main class="page-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        @RenderBody()
+                    </div>
+                </div>
+                <div id="copyright" style=" position: fixed;bottom: 0;width: 100%;color:white;background-color:#546072;">&#169; 2020 Ricoh Imaging Products (Phils.) Corp. | Developer: Grace M. Booc |</div>
+            </main>
+        </div>
+        <!-- page-content" -->
+
+    </div>
+
+    @* ------------------- C O M M O N | M O D A L S ----------------------------------*@
+
+
+
+
+    @*----------------------------E-N-D ---------------------------------------------------*@
+
+
+</body>
+</html>

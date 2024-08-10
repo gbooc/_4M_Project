@@ -1,0 +1,763 @@
+﻿
+@{
+    ViewBag.Title = "Request4M";
+    Layout = "~/Views/Shared/Homepage_LayoutPage.cshtml";
+}
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="page-title">Create New 4M</h3>
+        </div>
+    </div>
+</div>
+
+<div class="dvContainer">
+    <section>
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="col-md-12 bg-white border rounded-5">
+                    <div class="card-header">
+                        <h3><b><i class="icon-pencil fa-2x w3-text-deep-purple"></i><u>4M Change Request And Result Report</u></b></h3>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8 col-md- col-lg-6">
+                                <div class="form-group">
+                                    <label class="lbl-header">Title</label>
+                                    <input id="txtTitle" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-xs-12  col-sm-8 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label class="lbl-header">Model</label>
+                                    <input id="txtModel" class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8 col-md- col-lg-6">
+                                <div class="form-group">
+                                    <label class="lbl-header">Name</label>
+                                    <input id="txtName" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-xs-12  col-sm-8 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label class="lbl-header">Marking</label>
+                                    <input id="txtMarking" class="form-control" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8 col-md- col-lg-4">
+                                <div class="form-group">
+                                    <label class="lbl-header">Quantity</label>
+                                    <input id="txtQTY" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-xs-12  col-sm-8 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label class="lbl-header">Test Deadline</label>
+                                    <input id="txtMarking" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-xs-12  col-sm-8 col-md-6 col-lg-4">
+                                <div class="form-group">
+                                    <label class="lbl-header">Issuing Department</label>
+                                    <input id="txtMarking" class="form-control" type="text">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12  col-sm-8 col-md-6 col-lg-6">
+                                <label class="lbl-header">Content</label>
+
+                                <div class="form-group">
+                                    <textarea class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-xs-12  col-sm-8 col-md-6 col-lg-6">
+                                <label class="lbl-header">Disposition Of Test Body</label>
+
+                                <div class="form-group">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                        <label class="form-check-label" for="inlineCheckbox1">Pass out after test</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                        <label class="form-check-label" for="inlineCheckbox2">Dis-assemble after test</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                        <label class="form-check-label" for="inlineCheckbox2">Others</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <textarea class="form-control" placeholder="Please specifiy" cols="25"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12  col-sm-12 col-md-12 col-lg-12">
+                                <label class="lbl-headerTitle">Checklist</label>
+                                <table class="table bg-light table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="w-auto">#</th>
+                                            <th class="w-50">Incharge</th>
+                                            <th class="w-75">Description</th>
+                                            <th class="w-auto">...</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><textarea class="form-control">Test</textarea></td>
+                                            <td><textarea class="form-control">Test</textarea></td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12  col-sm-6 col-md-4 col-lg-4">
+                                <label class="lbl-headerTitle">Lot No. Control</label>
+                                <table class="table table-sm bg-light table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>No Need</th>
+                                            <th>Need</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Test Samples</td>
+                                            <td><input type="checkbox" class="w3-check" /></td>
+                                            <td><input type="checkbox" class="w3-check" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mass Samples</td>
+                                            <td><input type="checkbox" class="w3-check" /></td>
+                                            <td><input type="checkbox" class="w3-check" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Work Instruction Revision</td>
+                                            <td><input type="checkbox" class="w3-check" /></td>
+                                            <td><input type="checkbox" class="w3-check" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-xs-12  col-sm-6 col-md-4 col-lg-4">
+                                <label class="lbl-headerTitle">UID</label>
+                                <table class="table table-sm bg-light table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>UID</th>
+                                            <th>...</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><input type="text" class="form-control" value="1234" /></td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><input type="text" class="form-control" value="1234" /></td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>1</td>
+                                            <td>Test</td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-xs-12  col-sm-12 col-md-4 col-lg-4">
+                                <label class="lbl-headerTitle">Parts Number</label>
+                                <table class="table table-sm bg-light table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="w-auto">#</th>
+                                            <th class="w-75">Parts Number</th>
+                                            <th class="w-auto">...</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><input type="text" class="form-control" value="1234" /></td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><input type="text" class="form-control" value="1234" /></td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Test</td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card bg-lighten-4">
+                                    <div class="card-header">
+                                        <h3 class="lbl-headerTitle"><i class="fa fa-users w3-text-deep-purple fa-2x"></i> Department Process</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table table-sm bg-light table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Process</th>
+                                                    <th>Plant</th>
+                                                    <th>Date</th>
+                                                    <th>In-charge</th>
+                                                    <th>Status</th>
+                                                    <th>Results</th>
+                                                    <th>Judgement</th>
+                                                    <th>Approval</th>
+                                                    <th>...</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>CM</td>
+                                                    <td>RIMP</td>
+                                                    <td>2022-02-19</td>
+                                                    <td>Booc, Grace M.</td>
+                                                    <td><span class="badge bg-red status"><i class="fa fa-times-rectangle-o"></i> For Approval</span></td>
+                                                    <td>Test Ok</td>
+                                                    <td>Good</td>
+                                                    <td>Booc, Grace M.</td>
+                                                    <td>
+                                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                                            <button type="button" class="btn btn-secondary btn-sm" data-placement="top" title="Edit" data-toggle="modal" data-target="#mdhistory" data-backdrop="static" data-keyboard="false"><i class="fa fa-edit"></i></button>
+                                                            <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>CM</td>
+                                                    <td>RIMP</td>
+                                                    <td>2022-02-19</td>
+                                                    <td>Booc, Grace M.</td>
+                                                    <td><span class="badge bg-blue status"><i class="fa fa-check-square-o"></i> Approved</span></td>
+                                                    <td>Test Ok</td>
+                                                    <td>Good</td>
+                                                    <td>Booc, Grace M.</td>
+                                                    <td>
+                                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                                            <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                            <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>CM</td>
+                                                    <td>RIMP</td>
+                                                    <td>2022-02-19</td>
+                                                    <td>Booc, Grace M.</td>
+                                                    <td><span class="badge bg-blue status"><i class="fa fa-check-square-o"></i> Approved</span></td>
+                                                    <td>Test Ok</td>
+                                                    <td>Good</td>
+                                                    <td>Booc, Grace M.</td>
+                                                    <td>
+                                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                                            <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
+                                                            <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card card-table flex-fill">
+                                    <div class="card-header">
+                                        <h3 class="card-title mb-0"><i class="fa fa-keyboard-o w3-text-deep-purple fa-2x"></i> Final Judgement</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="">PD Judgement</span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Date">
+                                            <input type="text" class="form-control" placeholder="In-charge">
+                                            <select class="form-control">
+                                                <option>Select Result</option>
+                                                <option>Good</option>
+                                                <option>No Good</option>
+                                            </select>
+                                            <input type="text" class="form-control" placeholder="Approval">
+                                        </div>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="">TD Judgement</span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Date">
+                                            <input type="text" class="form-control" placeholder="In-charge">
+                                            <select class="form-control">
+                                                <option>Select Result</option>
+                                                <option>Good</option>
+                                                <option>No Good</option>
+                                            </select>
+                                            <input type="text" class="form-control" placeholder="Approval">
+                                        </div>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend w3-margin-right">
+                                                <span class="input-group-text" id="">Drawing Change Application?</span>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input w3-check" type="checkbox" id="inlineCheckbox1" value="option1">
+                                                <label class="form-check-label" for="inlineCheckbox1">Need</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input w3-check" type="checkbox" id="inlineCheckbox2" value="option2">
+                                                <label class="form-check-label" for="inlineCheckbox2">No Need</label>
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="">QMD Final Judgement</span>
+                                            </div>
+                                            <select class="form-control">
+                                                <option>Select Result</option>
+                                                <option>Good Conditional Good</option>
+                                                <option>No Good</option>
+                                            </select>
+                                            <input type="text" class="form-control" placeholder="Results">
+                                            <input type="text" class="form-control" placeholder="Approval">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8 col-md- col-lg-6">
+                                <div class="form-group">
+                                    <label for="lblTitle">Report Number</label>
+                                    <input id="txtTitle" class="form-control" type="text" readonly>
+                                </div>
+                            </div>
+                            <div class="col-xs-12  col-sm-8 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="lblModel">Date</label>
+                                    <input id="txtModel" class="form-control" type="text" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-secondary"><i class="fa fa-save"></i> Save Changes</button>
+                                    <button type="button" class="btn btn-secondary bg-success"><i class="fa fa-file-excel-o"></i> Export To Excel</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header card-header-color">
+                                <h4 class="card-title mb-0"><b><i class="icon-lock-open fa-2x w3-text-white"></i> Controls</b></h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul class="list-group">
+                                            <li class="list-group-item" data-toggle="modal" data-target="#mdupload" data-backdrop="static" data-keyboard="false"><a href="#"><i class="icon-cloud-upload fa-2x"></i> Upload Pre-requisite</a></li>
+                                            <li class="list-group-item" data-toggle="modal" data-target="#mdchecklist" data-backdrop="static" data-keyboard="false"><a href="#"><i class="fa fa-list-ul"></i> Add Checklist</a></li>
+                                            <li class="list-group-item" data-toggle="modal" data-target="#mdpartsnumber" data-backdrop="static" data-keyboard="false"><a href="#"><i class="fa fa-camera-retro"></i> Add Parts Number</a></li>
+                                            <li class="list-group-item" data-toggle="modal" data-target="#mdUID" data-backdrop="static" data-keyboard="false"><a href="#"><i class="fa fa-id-badge"></i> Add UID</a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header card-header-color">
+                                <h4 class="card-title mb-0"><b><i class="fa fa-comments-o fa-2x w3-text-white"></i> History</b></h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <ul class="list-group">
+                                            <li class="list-group-item" data-toggle="modal" data-target="#mdhistory" data-backdrop="static" data-keyboard="false"><a href="#"><i class="fa fa-newspaper-o"></i> Process History</a></li>
+                                            <li class="list-group-item" data-toggle="modal" data-target="#mdattachedments" data-backdrop="static" data-keyboard="false"><a href="#"><i class="fa fa-file-archive-o"></i> Attachments</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@*- - - - - - - M O D A L S - - - - - - - -*@
+
+<div class="modal fade" id="mdupload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-light">
+            <div class="modal-header">
+                <h3 class="modal-title md-font"><i class="fa fa-file-image-o w3-text-white fa-2x"></i> Upload Images</h3>
+                <button type="button" class="close w3-text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body bg-light">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md- col-lg-6">
+                        <div class="form-group">
+                            <label class="lbl-header">Add MCN Number:</label>
+                            <input id="txtTitle" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md- col-lg-6">
+                        <div class="form-group">
+                            <button class="btn btn-dark" style="margin-top:30px;"><i class="fa fa-download fa-2x"></i> Upload Image</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <img src="~/Content/assets/img/preview.png" class="img-thumbnail rounded mx-auto d-block" style="width:70%;" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer bg-light-grey-blue bg-light-grey-blue">
+                <button type="button" class="btn btn-dark w3-hover-deep-purple w3-hover-deep-purple"><i class="fa fa-save"></i> Submit Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdchecklist" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-light">
+            <div class="modal-header">
+                <h3 class="modal-title md-font"><i class="fa fa-check-square w3-text-white"></i> Add 4M Checklist</h3>
+                <button type="button" class="close w3-text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md- col-lg-6">
+                        <div class="form-group">
+                            <label class="lbl-header">Process:</label>
+                            <select class="form-control">
+                                <option id="slctTD">TD</option>
+                                <option id="slctPD">Dynamic data</option>
+                                <option>TD</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md- col-lg-6">
+                        <div class="form-group">
+                            <label class="lbl-header">Plant:</label>
+                            <select class="form-control">
+                                <option id="slctTD">RIMP</option>
+                                <option id="slctPD">RIMV</option>
+                                <option id="slctPD">JPN</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md- col-lg-12">
+                        <div class="form-group">
+                            <label class="lbl-header">Description:</label>
+                            <textarea class="form-control" data-toggle="tooltip" data-html="true" title="Press enter to save checklist"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md- col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Process</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>test</td>
+                                        <td>test</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>test</td>
+                                        <td>test</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer bg-light-grey-blue bg-light-grey-blue">
+                <button type="button" class="btn btn-dark w3-hover-deep-purple"><i class="fa fa-save"></i> Submit Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdpartsnumber" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-light">
+            <div class="modal-header">
+                <h3 class="modal-title md-font" id="exampleModalLabel"><i class="fa fa-th-list w3-text-white"></i> Add 4M Parts Number</h3>
+                <button type="button" class="close w3-text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md- col-lg-7">
+                        <div class="form-group">
+                            <label class="lbl-headerTitle">Parts Number:</label>
+                            <input type="text" class="form-control" />
+                            <small class="text-info"><i class="fa fa-info-circle"></i> **Press enter to add  entry</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md- col-lg-10">
+                        <label class="lbl-headerTitle">List of parts number:</label>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Morbi leo risus</li>
+                            <li class="list-group-item">Porta ac consectetur ac</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer bg-light-grey-blue">
+                <button type="button" class="btn btn-dark w3-hover-deep-purple"><i class="fa fa-save"></i> Submit Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdUID" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-light">
+            <div class="modal-header">
+                <h3 class="modal-title md-font" id="exampleModalLabel"><i class="fa fa-id-card-o w3-text-white"></i> Add UID</h3>
+                <button type="button" class="close w3-text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md- col-lg-7">
+                        <div class="form-group">
+                            <label class="lbl-headerTitle">Scan/Enter UID:</label>
+                            <input type="text" class="form-control" />
+                            <small class="text-info"><i class="fa fa-info-circle"></i> **Press enter to add  entry</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md- col-lg-10">
+                        <label class="lbl-headerTitle">List of UID:</label>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Cras justo odio</li>
+                            <li class="list-group-item">Dapibus ac facilisis in</li>
+                            <li class="list-group-item">Morbi leo risus</li>
+                            <li class="list-group-item">Porta ac consectetur ac</li>
+                            <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer bg-light-grey-blue">
+                <button type="button" class="btn btn-dark w3-hover-deep-purple"><i class="fa fa-save"></i> Submit Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdhistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content bg-light">
+            <div class="modal-header">
+                <h3 class="modal-title md-font" id="exampleModalLabel"><i class="fa fa-newspaper-o w3-text-white"></i> 4M Transation History</h3>
+                <button type="button" class="close w3-text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="container py-4">
+                            <div class="col-md-12 col-lg-12 m-auto">
+                                <div class="bg-white rounded-3 shadow-sm p-4">
+                                    <h4 class="mb-4">7 Remarks</h4>
+
+                                    <div class="py-3">
+                                        <div class="comment-replies mt-4 bg-light p-3 rounded">
+                                            <div class="d-flex py-2">
+                                                <div class="flex-grow-1 ms-3">
+                                                    <div class="mb-1"><a href="#" class="fw-bold link-dark pe-1">Oomiya Yuki</a> <span class="text-muted text-nowrap">5 mintues ago</span></div>
+                                                    <div class="mb-2">Integer et lorem lacus. Aenean bibendum ex sem, at pretium metus mollis sit amet. Morbi quis egestas ante. Praesent diam odio, fermentum non sapien vitae, fringilla placerat diam.</div>
+                                                    <div class="hstack align-items-center">
+                                                        <a class="link-secondary me-2" href="#"><i class="zmdi zmdi-thumb-up"></i></a>
+                                                        <span class="me-3 small"></span>
+                                                        <a class="link-secondary me-4" href="#"><i class="zmdi zmdi-thumb-down"></i></a>
+                                                        <a class="link-secondary small" href="#">REPLY</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-3 shadow-sm p-4 mb-4">
+                                    <!-- New Comment //-->
+                                    <div class="d-flex">
+                                        <div class="flex-grow-1">
+                                            <div class="form-floating mb-3">
+                                                <textarea class="form-control w-100"
+                                                          placeholder="Add Remarks here"
+                                                          id="my-comment"
+                                                          style="height:7rem;"></textarea>
+                                                <label for="my-comment">Add Remarks here</label>
+                                            </div>
+                                            <div class="hstack justify-content-end gap-2">
+                                                <button class="btn btn-sm btn-outline-primary text-uppercase">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdattachedments" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content bg-light">
+
+            <div class="modal-header">
+                <h3 class="modal-title md-font" id="exampleModalLabel"><i class="fa fa-id-card-o w3-text-white"></i> Attachments</h3>
+                <button type="button" class="close w3-text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-dark w3-hover-deep-purple"><i class="fa fa-file-pdf-o"></i> Attached PDF</button>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="w-25">#</th>
+                                    <th class="w-50">Description</th>
+                                    <th class="w-50">Attachment</th>
+                                    <th class="w-25">..</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Sample 1</td>
+                                    <td>pdf path</td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Download"><i class="fa fa-file-excel-o"></i></button>
+                                            <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

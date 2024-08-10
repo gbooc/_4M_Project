@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <title>Title ..</title>
+
+    @* --------- C S S --------------*@
+    <link rel="stylesheet" href="~/Content/assets/libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/assets/libs/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="~/Content/assets/css/w3.css">
+    <link rel="stylesheet" href="~/Content/assets/css/Login.css">
+
+
+    @*--------- E N D ---------------*@
+
+
+    @*--------J a v a s c r i p t ---*@
+    @*  <script src="~/Content/js/jquery-3.4.1.min.js"></script>*@
+    <script src="~/Content/assets/libs/angularjs1.8.2/angular.min.js"></script>
+    <script src="~/Content/assets/libs/jquery/jquery-3.6.0.js"></script>
+    <script src="~/Content/assets/libs/bootstrap/js/bootstrap.js"></script>
+    <script src="~/Content/assets/js/Homepage.js"></script>
+
+    <script src="~/Content/app/components/Login/loginController.js"></script>
+
+    <script>
+        $(function () {
+            $("#dvSplash").fadeOut(3000, function () {
+                $(".loginbody").fadeIn(1000);
+            });
+        });
+    </script>
+
+    @*------- E N D -----------------*@
+</head>
+
+
+<body ng-app="mainApp" class="welcome">
+
+    <div id="dvSplash">
+        <span id="splash-overlay" class="splash"></span>
+        <span id="welcome" class="z-depth-4"></span>
+    </div>
+
+    <main class="loginbody">
+        @RenderBody()
+    </main>
+</body>
+</html>
